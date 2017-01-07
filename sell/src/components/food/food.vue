@@ -32,18 +32,18 @@
 				<ratingselect :select-type="selectType" :only-content="onlyContent" :desc="desc" :ratings="food.ratings"></ratingselect>
 				<div class="rating-wrapper">
 					<ul v-show="food.ratings && food.ratings.length">
-						<li v-show="needShow(rating.rateType,rating.text)" v-for="rating in food.ratings" class="rating.item border-1px">
+						<li v-show="needShow(rating.rateType,rating.text)" v-for="rating in food.ratings" class="rating-item border-1px">
 							<div class="user">
 								<span class="name">{{rating.username}}</span>
 								<img src="" alt="" width="12" height="12" :src="rating.avatar" class="avatar">
 							</div>
 							<div class="time">{{rating.rateTime | formatDate}}</div>
 							<p class="text">
-								<span :class="{'icon-thumb_up:rating.rateType===0,icon-thumb_down:rating.rateType===1'}"></span>{{rating.text}}
+								<span :class="{'icon-thumb_up':rating.rateType===0,'icon-thumb_down':rating.rateType===1}"></span>{{rating.text}}
 							</p>
 						</li>
 					</ul>
-					<div class="no-rating" v-show="!food.ratings || !food.ratings.length">暂无评价</div>
+					<div class="no-rating" v-show="!food.ratings || !food.ratings.length || !notRatingShow()">暂无评价</div>
 				</div>
 			</div>
 		</div>
@@ -112,6 +112,15 @@
 				} else {
 					return type === this.selectType;
 				}
+			},
+			notRatingShow() {
+				let count = 0;
+				let ratings = this.food.ratings;
+				for (let i in ratings) {
+					this.needShow(ratings[i].rateType, ratings[i].text) ? count++ : '';
+					continue;
+				}
+				return count;
 			}
 		},
 		events: {
