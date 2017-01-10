@@ -130,7 +130,7 @@
 					this.scroll.refresh();
 				});
 			},
-			'content-toggle'(onlyContent) {
+			'content.toggle'(onlyContent) {
 				this.onlyContent = onlyContent;
 				this.$nextTick(() => {
 					this.scroll.refresh();

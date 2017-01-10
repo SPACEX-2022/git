@@ -39,7 +39,7 @@
 		</div>
 		<shopcart v-ref:shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
 	</div>
-	<food :food="selectedFood" v-ref:food></food>
+	<food  v-ref:food :food="selectedFood"></food>
 </template>
 
 <script type="text/ecmascript-6">
@@ -148,9 +148,9 @@
 			}
 		},
 		components: {
-			shopcart: shopcart,
-			cartcontrol: cartcontrol,
-			food: food
+			shopcart,
+			cartcontrol,
+			food
 		},
 		events: {
 			'cart.add'(target) {
