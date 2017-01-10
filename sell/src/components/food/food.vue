@@ -35,7 +35,7 @@
 						<li v-show="needShow(rating.rateType,rating.text)" v-for="rating in food.ratings" class="rating-item border-1px">
 							<div class="user">
 								<span class="name">{{rating.username}}</span>
-								<img src="" alt="" width="12" height="12" :src="rating.avatar" class="avatar">
+								<img alt="" width="12" height="12" :src="rating.avatar" class="avatar">
 							</div>
 							<div class="time">{{rating.rateTime | formatDate}}</div>
 							<p class="text">
