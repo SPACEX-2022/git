@@ -159,6 +159,7 @@
 					font-size: 24px
 					color: rgb(255, 153, 0)
 				.title
+					margin-bottom: 8px;
 					line-height: 12px
 					font-size: 12px
 					color: rgb(7, 17, 27)
